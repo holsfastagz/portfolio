@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#### Line deletion program for Trinity failed commands - Biodiversity Discovery Spring 2024. ####
+#### CMDSDEL: Line deletion program for Trinity failed commands - Biodiversity Discovery Spring 2024. ####
 #### By Holsen B. Moore :) ####
-#### Last Updated 2024-01-10 ####
+#### Last Updated 2024-01-11 ####
 
 #### Use this program in /trinity/trinity_out_dir if you have failed commands you need to delete. ###
 
@@ -11,7 +11,6 @@
 dirq=1    # Used to record if ../original_recursive_trinity.cmds existed before the use of this program. #
 recq=1    # Used to record if the recursive_trinity.cmds backup existed before the use of this program. #
 idar=()   # Used in Step 2 to record command IDs from FailedCommands. #
-nid=()    # Used in Step 2 to create an array of complete command IDs ready to search. #
 tic=0     # Used in Step 4 to display progress. #
 per=""    # Used in Step 4 to display progress. #
 orlen=0   # Used to record the original length of recursive_trinity.cmds in lines. #
@@ -41,17 +40,13 @@ echo '
 
 #### Step 2: Gather the command IDs from the FailedCommands file. ####
 
-idar=( $(sed -n 's@.trinity\.reads\.fa\.out.*@@
+idar=( $(sed -n 's@\.trinity\.reads\.fa\.out.*@\\.@
                  s@.*/c@c@p' FailedCommands) )
-for n in ${idar[@]}
-do
-    nid+=($n"\.")
-done
 echo "
 [Step 2]: Gathered Command IDs from FailedCommands.
 The following ${#idar[@]} commands were gathered:
 
-${idar[@]}
+${idar[@]%??}
 "
 
 #### Step 3: Delete failed commands from recursive_trinity.cmds following confirmation. ####
@@ -72,7 +67,7 @@ Deleting commands. Please wait..."
     ;;
 esac
 
-for n in ${nid[@]}
+for n in ${idar[@]}
 do
     sed -i "/$n/d" recursive_trinity.cmds
     ((++tic))
@@ -84,7 +79,7 @@ done
 delen=$(wc -l recursive_trinity.cmds)
 
 echo "
-[Step 3]: Deleted ${#idar[@]} failed commands from recursive_trinity.cmds.
+[Step 3]: Deleted ${#idar[@]} from recursive_trinity.cmds.
 If all is well, you may now restart Trinity :)
 
 File Length (Lines)
