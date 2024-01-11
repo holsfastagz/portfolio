@@ -79,7 +79,7 @@ done
 delen=$(wc -l recursive_trinity.cmds)
 
 echo "
-[Step 3]: Deleted ${#idar[@]} from recursive_trinity.cmds.
+[Step 3]: Deleted ${#idar[@]} failed commands from recursive_trinity.cmds.
 If all is well, you may now restart Trinity :)
 
 File Length (Lines)
