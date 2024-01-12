@@ -19,7 +19,7 @@ delen=0   # Used to record the final length of recursive_trinity.cmds in lines. 
 #### Step 0: Check if the correct files exist in the current directory. ####
 
 [ ! -f 'FailedCommands' ] && [ ! -f 'recursive_trinity.cmds' ] &&
-echo "\nThe necessary files do not exist in this directory. Perhaps you are in the wrong directory or haven't run Trinity yet.\n:)" && exit 1
+echo -e "\nThe necessary files do not exist in this directory. Perhaps you are in the wrong directory or haven't run Trinity yet.\n:)" && exit 1
 
 #### Step 1: Create a backup of the recursive_trinity.cmds file in case we make a mistake, provided a backup doesn't already exist. ####
 
@@ -67,5 +67,5 @@ done
 
 delen=$(wc -l recursive_trinity.cmds)
 
-echo -ne "\n\n[Step 3]: Deleted ${#idar[@]} failed commands from recursive_trinity.cmds.\nIf all is well, you may now restart Trinity :)\n
+echo -e "\n\n[Step 3]: Deleted ${#idar[@]} failed commands from recursive_trinity.cmds.\nIf all is well, you may now restart Trinity :)\n
 File Length (Lines)\nBefore: $orlen\n After: $delen\n"
