@@ -25,7 +25,7 @@ script_awk = []
 for i in purged_ids:
     lone_id = re.sub(r'\n',"",i)
     lone_id = re.sub(r' *',"",lone_id)
-    script_awk.append("awk -F $'\\t' '/" + lone_id + "/ {print $3, $5}' ../trim_map/*.sam")
+    script_awk.append("awk -F $'\\t' '/" + lone_id + "/ {print $3, $5}' ../trim_map/*.sam >> *pax6_scripts.txt")
 
 # Output the generated AWK commands to terminal.
 for i in script_awk:
