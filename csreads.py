@@ -12,10 +12,8 @@ import regex as re
 with open("raw_output.txt", "r") as file:
     redundant_ids = file.readlines()
 
-# Remove redundant items from the list.
+# Remove redundant items from the list and output to terminal.
 purged_ids = list(set(redundant_ids))
-
-# Write new purged ID list to new file.
 for i in purged_ids:
     lone_id = re.sub(r'\n',"",i)
     print(lone_id)
