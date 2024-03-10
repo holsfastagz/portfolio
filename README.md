@@ -2,7 +2,7 @@
 The readme file.
 
 ## csblast.py
-### Connecting Scripts (Blast Output)
+### Connecting Scripts (BLAST Output)
 Removes duplicate Trinity IDs from BLAST output. Formats Trinity IDs into AWK commands to search transcript mapping for read IDs.
 
 ## csread.py
