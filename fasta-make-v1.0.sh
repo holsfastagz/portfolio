@@ -24,5 +24,4 @@ do
 	printf "\n" >> .${i}.fasta
 done
 
-blastdbcmd -db ${species} -entry ${script_ids[1]} -out ${species}_pax6_top.fasta
 cat .*.fasta > ${species}_pax6_cat.fasta
