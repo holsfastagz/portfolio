@@ -12,16 +12,16 @@ Since this project was computational, I took the initiative to learn Bash
 scripting and create programs to make our workflow faster and easier. Most of
 the programs I coded are simple. They are found in this repository. 
 
-## blast-v1.0.sh
+## blast
 Used to create BLAST database and search for Pax6 transcripts.
 
-## connecting-scripts-v1.0.sh
+## connecting-scripts
 Used to find candidate transcripts for analysis.
 
-## fasta-make-v1.0.sh
+## fasta-make
 Used to make a FASTA file for the top BLAST output of every species.
 
-## multi-fasta-make-v1.0.sh
+## multi-fasta-make
 Used to make a multi FASTA file for every BLAST output of a species.
 
 # Contact
