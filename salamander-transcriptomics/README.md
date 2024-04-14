@@ -1,4 +1,4 @@
-# Salamander Transcriptomics
+# 🧬 Salamander Transcriptomics
 I worked on this project starting from August 2023 in the Biodiversity
 Discovery FRI stream at the University of Texas at Austin. I learned Bash shell
 scripting while working on this project.
@@ -12,19 +12,19 @@ Since this project was computational, I took the initiative to learn Bash
 scripting and create programs to make our workflow faster and easier. Most of
 the programs I coded are simple. They are found in this repository. 
 
-## blast
+## 🖥️ blast
 Used to create BLAST database and search for Pax6 transcripts.
 
-## connecting-scripts
+## 🖥️ connecting-scripts
 Used to find candidate transcripts for analysis.
 
-## fasta-make
+## 🖥️ fasta-make
 Used to make a FASTA file for the top BLAST output of every species.
 
-## multi-fasta-make
+## 🖥️ multi-fasta-make
 Used to make a multi FASTA file for every BLAST output of a species.
 
-# Contact
+# 📞 Contact
 Holsen B. Moore
 
 hols3nmoore@gmail.com
