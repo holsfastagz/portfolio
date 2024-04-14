@@ -1,9 +1,19 @@
 ## README.md
 The readme file.
 
-## Connecting Scripts
+## blast-v1.0.sh
+Used to create BLAST database and search for Pax6 transcripts.
+
+## connecting-scripts-v1.0.sh
 Used to find candidate transcripts for analysis.
 
-## Contact
+## fasta-make-v1.0.sh
+Used to make a FASTA file for the top BLAST output of every species.
+
+## multi-fasta-make-v1.0.sh
+Used to make a multi FASTA file for every BLAST output of a species.
+
+# Contact
 Holsen B. Moore
-Project link: https://github.com/h0ls3n/salamander_transcriptomics
+hols3nmoore@gmail.com
+holsenmoore@utexas.edu
