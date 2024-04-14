@@ -13,9 +13,6 @@ Since this project is computational, I took the initiative to learn Bash
 scripting and create programs to make our workflow faster and easier. The
 programs I coded are simple. They are found in this repository. 
 
-## 🖥️ blast
-Used to create BLAST database and search for Pax6 transcripts.
-
 ## 🖥️ connecting-scripts
 Used to find candidate transcripts for analysis.
 
