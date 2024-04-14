@@ -10,8 +10,8 @@ salamanders. We will do this by analyzing substitution rates in the transcripts
 of these genes. 
 
 Since this project is computational, I took the initiative to learn Bash
-scripting and create programs to make our workflow faster and easier. Most of
-the programs I coded are simple. They are found in this repository. 
+scripting and create programs to make our workflow faster and easier. The
+programs I coded are simple. They are found in this repository. 
 
 ## 🖥️ blast
 Used to create BLAST database and search for Pax6 transcripts.
@@ -25,9 +25,3 @@ Used to make a FASTA file for the top BLAST output of every species.
 ## 🖥️ multi-fasta-make
 Used to make a multi FASTA file for every BLAST output of a species.
 
-# 📞 Contact
-Holsen B. Moore
-
-hols3nmoore@gmail.com
-
-holsenmoore@utexas.edu
