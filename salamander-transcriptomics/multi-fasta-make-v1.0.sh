@@ -25,4 +25,7 @@ do
 done
 
 # Concatenates all invisible FASTA files into a multi FASTA file
-cat .*.fasta > ${species}_pax6_cat.fasta
+cat .*.fasta > ${species}_pax6_multi.fasta
+
+# Removes all invisible FASTA files.
+rm .*.fasta
