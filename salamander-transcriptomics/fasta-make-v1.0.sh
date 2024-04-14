@@ -3,6 +3,7 @@
 # FASTA Make
 # Makes a FASTA file from the top Pax6 BLAST output.
 # This can be run anywhere, and it will create a FASTA file for all the necessary species.
+# By Holsen B. Moore
 # Last Updated: 2024-04-14
 # Version: 1.0 
 
