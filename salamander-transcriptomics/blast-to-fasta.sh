@@ -7,6 +7,7 @@
 # resulting transcripts.
 
 # Salamander Transcriptomics, Biodiversity Discovery, FRI
+# The University of Texas at Austin
 # By Holsen B. Moore
 # Last Updated: 2024-04-14
 
@@ -34,7 +35,7 @@ do
 	if [ -f ${wd}/${i}/blast/${i}.nhr ]
 	then
 		# Appends this directory name to species array.
-		species+=("${i}")
+		species+="${i} "
 	fi
 done
 
@@ -46,8 +47,11 @@ do
 	# Requires specific format: species_gene-name.fasta
 	goi=$(ls ${wd}/goi_homo_sequences/${i} | awk -F'_' '{print $4}' | awk -F'.' '{print $1}')
 
-	# Makes directory for gene of interest outputs.
-	mkdir ${wd}/goi_scripts/${goi}	
+	# Makes directory for gene of interest outputs if one does not already exist.
+	if [ ! -d ${wd}/goi_scripts/${goi} ]
+	then
+		mkdir ${wd}/goi_scripts/${goi}	
+	fi 
 
 	# Iterates over every species.
 	for j in ${species}
@@ -55,8 +59,8 @@ do
 		# Variables of relevant paths.
 		# Makes actual command shorter and easier for humans to parse.
 		query="${wd}/goi_homo_sequences/${i}"
-		outfile="${wd}/${species}/blast/${species}_${goi}_BLAST_output.txt"
-		database="${wd}/${species}/blast/${species}"
+		database="${wd}/${j}/blast/${j}"
+		outfile="${wd}/${j}/blast/${j}-${goi}-BLAST_output.txt"
 
 		# If output file already exists, then move on to the next
 		# iteration. This means there will be no annoying errors.
@@ -67,6 +71,9 @@ do
 
 		# Conducts BLAST search for GOI.
 		tblastn -query ${query} -db ${database} -out ${outfile} -outfmt 6 -evalue 1e-20
+
+		# Displays a nice completion message.
+		printf "BLAST search for $goi completed for $j\n"
 	done
 done
 
@@ -79,7 +86,7 @@ wait
 for i in ${species}
 do
 	# Path variables for ease of coding and human readability.
-	species_dir="${wd}/${species}"
+	species_dir="${wd}/${i}"
 	output_files=$(ls ${species_dir}/blast/*BLAST_output.txt)
 
 	# Iterates over every BLAST output file.
@@ -87,17 +94,20 @@ do
 	do
 		# Grabs gene name from BLAST output file name and writes it to
 		# memory.
-		gene=$(printf "$j" | awk -F'_' '{print $2}')
+		gene=$(printf "$j" | awk -F'-' '{print $2}')
 
 		# Path variables for ease of coding and human readability.
-		database="${wd}/${species}/blast/${species}"
+		database="${species_dir}/blast/${i}"
 		entry=$(head -n 1 ${j} | awk -F'\t' '{print $2}')
-		outfile="${wd}/goi_scripts/${gene}/${species}_${gene}.fasta"
+		outfile="${wd}/goi_scripts/${gene}/${i}_${gene}.fasta"
 
 		# If BLAST output file is empty or if the FASTA output already
 		# exists, move to the next iteration without doing anything.
 		# This means no annoying errors will be produced.
-		if [ ! -s ${j} ] | [ -f ${outfile} ] 
+		if [ -f ${outfile} ] 
+		then
+			continue
+		elif [ ! -s ${j} ]
 		then
 			continue
 		fi
@@ -106,3 +116,7 @@ do
 		blastdbcmd -db ${database} -entry ${entry} -out ${outfile}
 	done	
 done
+
+# Waits for background processes to finish and displays a nice message.
+wait
+printf "\nBLAST to FASTA complete! hehe :)\n"
