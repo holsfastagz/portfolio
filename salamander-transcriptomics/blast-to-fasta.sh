@@ -66,7 +66,7 @@ do
 		fi
 
 		# Conducts BLAST search for GOI.
-		nohup tblastn -query ${query} -db ${database} -out ${outfile} -outfmt 6 -evalue 1e-20 &
+		tblastn -query ${query} -db ${database} -out ${outfile} -outfmt 6 -evalue 1e-20
 	done
 done
 
