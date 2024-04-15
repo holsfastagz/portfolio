@@ -13,12 +13,15 @@ Since this project is computational, I took the initiative to learn Bash
 scripting and create programs to make our workflow faster and easier. The
 programs I coded are simple. They are found in this repository. 
 
-## 🖥️ connecting-scripts
+## BLAST to FASTA
+Searches BLAST databases for genes of interest and outputs FASTA files.
+
+## 🖥️ Connecting Scripts
 Used to find candidate transcripts for analysis.
 
-## 🖥️ fasta-make
+## 🖥️ FASTA Make
 Used to make a FASTA file for the top BLAST output of every species.
 
-## 🖥️ multi-fasta-make
+## 🖥️ MultiFASTA Make
 Used to make a multi FASTA file for every BLAST output of a species.
 
