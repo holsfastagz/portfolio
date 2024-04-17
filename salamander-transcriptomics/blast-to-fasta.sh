@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # BLAST to FASTA
-# version 1.0
 
-# Performs BLAST searches of genes of interest and makes FASTA files of
-# resulting transcripts.
+# Performs BLAST searches and creates alignments of genes of interest.
 
 # Salamander Transcriptomics, Biodiversity Discovery, FRI
 # The University of Texas at Austin
 # By Holsen B. Moore
-# Last Updated: 2024-04-14
+# Last Updated: 2024-04-17
 
 # GLOBAL VARIABLES:
 
@@ -73,7 +71,7 @@ do
 		tblastn -query ${query} -db ${database} -out ${outfile} -outfmt 6 -evalue 1e-20
 
 		# Displays a nice completion message.
-		printf "BLAST search for $goi completed for $j\n"
+		printf "BLAST search for $goi completed for $j.\n"
 	done
 done
 
@@ -109,14 +107,47 @@ do
 			continue
 		elif [ ! -s ${j} ]
 		then
+			printf "No BLAST output for ${gene} for ${i}.\n"
 			continue
 		fi
 
 		# Creates FASTA file from top BLAST output.
 		blastdbcmd -db ${database} -entry ${entry} -out ${outfile}
-	done	
+	done
 done
 
-# Waits for background processes to finish and displays a nice message.
+# Records GOI names to memory by listing directories of goi scripts directory.
+goi_list=$(ls ${wd}/goi_scripts)
+
+# Iterates over every GOI.
+for i in ${goi_list}
+do
+	# If alignment already exists, move on to the next iteration.
+	if [ -f ${wd}/goi_scripts/${i}/alignment/Eurycea_${i}.aln ] 
+	then
+		continue
+	else
+		# Paths for concatenation.
+		fastas="${wd}/goi_scripts/${i}/*"
+		multi="${wd}/goi_scripts/${i}/Eurycea_${i}_multi.fasta"
+
+		# Concatenates FASTAs into a Multi FASTA.
+		cat ${fastas} > ${multi}
+
+		# Output path for MAFFT.
+		outfile="${wd}/goi_scripts/${i}/alignment/Eurycea_${i}.aln"
+		
+		# Makes alignment directory.
+		mkdir ${wd}/goi_scripts/${i}/alignment
+
+		# Creates alignment.
+		mafft ${multi} > ${outfile}
+	fi
+done
+
+# Waits for background processes to finish and displays a nice message and the
+# date.
 wait
 printf "\nBLAST to FASTA complete! hehe :)\n"
+dt=$(date '+%Y-%m-%d %H:%M:%S')
+printf "$dt\n"
