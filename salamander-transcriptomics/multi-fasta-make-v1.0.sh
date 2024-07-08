@@ -3,9 +3,8 @@
 # Multi FASTA Make
 # Makes a multi FASTA file from the BLAST outputs of Pax6.
 # This must be run in the species' blast directory.
-# By Holsen B. Moore
+# https://github.com/holsfastagz
 # Last Updated: 2024-04-14
-# Version: 1.0
 
 # Records the species name to memory.
 species=$(pwd | awk -F'/' '{print $5}')
