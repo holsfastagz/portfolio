@@ -4,8 +4,6 @@
 
 # Performs BLAST searches and creates alignments of genes of interest.
 
-# Salamander Transcriptomics, Biodiversity Discovery, FRI
-# The University of Texas at Austin
 # https://github.com/holsfastagz
 # Last Updated: 2024-04-17
 
