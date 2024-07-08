@@ -6,7 +6,7 @@
 
 # Salamander Transcriptomics, Biodiversity Discovery, FRI
 # The University of Texas at Austin
-# By Holsen B. Moore
+# https://github.com/holsfastagz
 # Last Updated: 2024-04-17
 
 # GLOBAL VARIABLES:
