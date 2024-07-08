@@ -3,10 +3,8 @@
 # FASTA Make
 # Makes a FASTA file from the top Pax6 BLAST output.
 # This can be run anywhere, and it will create a FASTA file for all the necessary species.
-# By Holsen B. Moore
+# https://github.com/holsfastagz
 # Last Updated: 2024-04-14
-# Version: 1.0 
-
 
 species_list=( "aquatica" "pterophila_Comal" "pterophila_PC" "wakei" "pricei" "pronatura" "sosorum" "wallacei" "chisholmensis" "cirrigera" "hillisi" "sosorum" "tonkawae_TT" "rathbuni" "neotenes" "naufragia" "NewBraunfels" "latitans_HCC" "latitans_HCSNA" "pronatura_trans" "winkleri" "nana" "waterlooensis" "troglodytes" "tonkawae_BC" )
 
