@@ -1,11 +1,8 @@
 #!/bin/bash
 
 # Connecting Scripts
-# Version 1.0
-# Salamander Transcriptomics
-# Biodiversity Discovery
 # March 12, 2024
-# Holsen B. Moore
+# https://github.com/holsfastagz
 
 echo 'Program is running. This may take a while.'
 
